@@ -19,15 +19,18 @@ def parseImages(activeBlog):
         content = file.read()
     images = re.findall(r'!\[\[(.*?)\]\]', content)
     return images
-
+    
 def copyImages(imageLinks, obsidianImages, hugoImages):
     for link in imageLinks:
         imagePath = os.path.join(obsidianImages, link)
-        if os.path.exists(imagePath):
+        
+        if os.path.isfile(imagePath):  # Check if the path is a file
             shutil.copy(imagePath, hugoImages)
-            print("Copied " + link + " into Hugo images directory!")
+            print(f"Copied {link} into Hugo images directory!")
+        elif os.path.isdir(imagePath):  # If it's a directory, log and skip
+            print(f"Skipped directory: {imagePath}")
         else:
-            print("Image " + link + " not found.")
+            print(f"Image {link} not found at path: {imagePath}")
     print()
 
 def copyBlog(activeBlog, obsidianBlogs, hugoBlogs):
