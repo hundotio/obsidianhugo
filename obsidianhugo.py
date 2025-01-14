@@ -93,7 +93,7 @@ def updateLinks(hugoFinal, activeBlog):
 
     def replace_link(match):
         file_name = match.group(1)
-        return f'![{file_name}](/images/{file_name})'
+        return f'![{file_name}](</images/{file_name}>)'
     
     updated_content = re.sub(pattern, replace_link, content)
 
