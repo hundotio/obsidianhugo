@@ -1,6 +1,6 @@
 # Obsidian to Hugo transfer script!
 
-This is my little transfer script for uploading blogposts from Obsidian to Hugo :)
+This is my little transfer script for uploading blogposts from Obsidian to my [Hugo website](https://hunio.org) :)
 
 If you want to use this script yourself, change the following variables in the program (use explicit paths!):
 
